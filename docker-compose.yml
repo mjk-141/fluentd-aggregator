@@ -1,0 +1,11 @@
+services:
+  fluentd_aggrator:
+    container_name: fluentd_aggrator_container
+    build:
+      context: ./fluentd
+      dockerfile: dockerfile
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+    volumes:
+      - "${PWD}/fluentd/conf:/fluentd/etc"
